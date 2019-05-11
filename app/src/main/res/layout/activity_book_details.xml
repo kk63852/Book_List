@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookDetailsActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="295dp"
+        android:layout_height="290dp"
+        android:background="#000000"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="17dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic[12]" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="75dp"
+        android:layout_height="36dp"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="131dp"
+        android:text="Title  :"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_alignLeft="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="219dp"
+        android:layout_height="53dp"
+        android:textSize="15dp"
+        android:layout_alignTop="@+id/title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="2dp"
+        tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="94dp"
+        android:layout_height="37dp"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35dp"
+        android:text="Author  :"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="219dp"
+        android:layout_height="40dp"
+        android:textSize="15dp"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignTop="@+id/author"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="2dp"
+        tools:text="TextView" />
+
+
+</RelativeLayout>
