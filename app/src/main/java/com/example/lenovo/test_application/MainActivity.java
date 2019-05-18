@@ -19,6 +19,21 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final String murl = "http://www.mocky.io/v2/5cc008de310000440a035fdf";
     private Books_adapter books_adapter;
+    private View.OnClickListener onClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Bundle bundle = new Bundle();
+            //find i
+            int i=0;
+            books currentbook=books_adapter.getItem(i);
+            Intent intent=new Intent(getApplicationContext(),BookDetailsActivity.class);
+            bundle.putString("title",currentbook.getBookTitle());
+            bundle.putString("name",currentbook.getAuthorName());
+            bundle.putString("image",currentbook.getImageSource());
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,25 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         ListView booksListView =  findViewById(R.id.list);
 
-
         books_adapter = new Books_adapter(this,new ArrayList<books>());
 
         booksListView.setAdapter(books_adapter);
         BooksAsyncTask booksAsyncTask=new BooksAsyncTask();
         booksAsyncTask.execute(murl);
-        booksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Bundle bundle = new Bundle();
-                books currentbook=books_adapter.getItem(i);
-                Intent intent=new Intent(getApplicationContext(),BookDetailsActivity.class);
-                bundle.putString("title",currentbook.getBookTitle());
-                bundle.putString("name",currentbook.getAuthorName());
-                bundle.putString("image",currentbook.getImageSource());
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
+        books_adapter.setOnClickListener(onClickListener);
 
     }
     private class BooksAsyncTask extends AsyncTask<String,Void,List<books>>{

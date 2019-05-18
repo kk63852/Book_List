@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class Books_adapter extends ArrayAdapter<books> {
+    private View.OnClickListener onClickListener;
     public Books_adapter(Activity context, ArrayList<books> books){
         super(context,0,books);
     }
@@ -38,8 +39,13 @@ public class Books_adapter extends ArrayAdapter<books> {
         Glide.with(getContext())
                 .load(currentBook.getImageSource())
                 .into(imageView);
-
+        imageView.setOnClickListener(onClickListener);
 
         return listItemView;
     }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
 }
